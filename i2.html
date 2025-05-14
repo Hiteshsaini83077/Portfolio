@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4QeCkN4Z+9jO4G3ay/NcZGzG1SGL5wFpF91trPls7RGC1H9Fq1dSjyHuVqtXv6HZhJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: #0f0f0f;
+      color: #fff;
+      scroll-behavior: smooth;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #1a1a1a;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+    header h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #00ffe5;
+    }
+    nav {
+      position: relative;
+    }
+    nav a {
+      margin-left: 20px;
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #00ffe5;
+    }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #2a2a2a;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+      z-index: 1;
+      top: 100%;
+    }
+    .dropdown-content a {
+      display: block;
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+    }
+    .dropdown-content a:hover {
+      background-color: #00ffe5;
+      color: #000;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    section {
+      padding: 100px 50px;
+      min-height: 100vh;
+    }
+    #home {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    #home h2 {
+      font-size: 48px;
+      animation: fadeInDown 1s ease-in-out;
+    }
+    #home p {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #ccc;
+      animation: fadeInUp 1.5s ease-in-out;
+    }
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      border: 4px solid #00ffe5;
+      object-fit: cover;
+    }
+    .social-links {
+      margin-top: 20px;
+      display: flex;
+      gap: 15px;
+    }
+    .social-links a {
+      color: #fff;
+      font-size: 24px;
+      transition: transform 0.3s, color 0.3s;
+    }
+    .social-links a:hover {
+      color: #00ffe5;
+      transform: scale(1.2);
+    }
+    .home-buttons {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.home-buttons .btn {
+  padding: 12px 24px;
+  background-color: #00ffe5;
+  color: #000;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.home-buttons .btn:hover {
+  background-color: #00d2c0;
+  transform: scale(1.05);
+}
+
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-image {
+  flex: 1;
+  min-width: 300px;
+  position: relative;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.caption {
+  margin-top: 15px;
+  color: #77bdfb;
+}
+
+.caption h4 {
+  color: #3399ff;
+}
+
+.about-cards {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.info-card {
+  flex: 1;
+  min-width: 150px;
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,255,229,0.1);
+  color: #fff;
+}
+
+.info-card i {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #00ffe5;
+}
+
+.about-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.about-buttons .btn {
+  padding: 10px 20px;
+  background: #00ffe5;
+  color: #000;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.about-buttons .btn.outlined {
+  background: transparent;
+  border: 2px solid #00ffe5;
+  color: #00ffe5;
+}
+
+.about-buttons .btn:hover {
+  background: #00d2c0;
+  color: #000;
+}
+
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card {
+      background: #1a1a1a;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 255, 229, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 16px 30px rgba(0, 255, 229, 0.4);
+    }
+    .skills-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+    .skill {
+      padding: 10px;
+      background: #2a2a2a;
+      border-radius: 5px;
+      text-align: center;
+      transition: background 0.3s;
+    }
+    .skill:hover {
+      background: #00ffe5;
+      color: #000;
+    }
+    #contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: auto;
+    }
+    #contact input, #contact textarea {
+      padding: 10px;
+      background: #1a1a1a;
+      color: #fff;
+      border: 1px solid #00ffe5;
+      border-radius: 5px;
+      resize: vertical;
+    }
+    #contact button {
+      background: #00ffe5;
+      color: #000;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    #contact button:hover {
+      background: #00d2c0;
+    }
+    .modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+  background-color: #1a1a1a;
+  margin: 10% auto;
+  padding: 30px;
+  border: 1px solid #00ffe5;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 10px;
+  color: white;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0,255,229,0.3);
+}
+
+.modal .close {
+  color: #00ffe5;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.certifications {
+    padding: 60px;
+    background-color: #0f1117;
+    color: white;
+  }
+  .cert-filter button {
+    margin: 10px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background-color: #222;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  .cert-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .cert-card {
+    width: 300px;
+    background: #1b1d25;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  .cert-card:hover {
+    transform: scale(1.05);
+  }
+  .cert-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  .cert-info {
+    padding: 15px;
+  }
+  .cert-info h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+  .cert-date {
+    display: block;
+    color: #999;
+    margin-top: 5px;
+  }
+  .view-btn {
+    margin-top: 20px;
+    padding: 8px 16px;
+    background-color: #00ffe5;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  .view-btn:hover {
+    background-color: #00ccb3;
+  }
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+  }
+  .modal-content {
+    background: #fff;
+    color: #000;
+    padding: 20px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+  }
+  .modal-content img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 8px;
+  }
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+  }
+  .download-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #00b894;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .cert-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.cert-filter {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.cert-filter button {
+  margin: 5px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  background-color: #222;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cert-filter button:hover,
+.cert-filter button.active {
+  background-color: #00ccb3;
+}
+#skills {
+  background: radial-gradient(circle at top left, #1f1f1f, #0f0f0f);
+  padding: 100px 50px;
+}
+
+.skills-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.skill-card {
+  background: linear-gradient(135deg, #121212, #1e1e1e);
+  border: 1px solid rgba(0, 255, 229, 0.3);
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 0 20px rgba(0, 255, 229, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 30px rgba(0, 255, 229, 0.3);
+}
+
+.skill-card h3 {
+  color: #00ffe5;
+  margin-bottom: 15px;
+  font-size: 22px;
+  display: flex; /* Align text and percentage */
+  justify-content: space-between; /* Space them out */
+  align-items: center; /* Vertically align */
+}
+
+.skill-percentage {
+  color: #999; /* Optional: Style the percentage */
+  font-size: 0.9em;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 12px;
+  background: #333;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: inset 0 0 8px rgba(0, 255, 229, 0.3);
+}
+
+.skill-fill {
+  height: 100%;
+  width: 0%; /* Initial width is 0, set by JavaScript */
+  background: linear-gradient(90deg, #00ffe5, #00b894);
+  border-radius: 6px;
+  transition: width 2s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 229, 0.6);
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hitesh Saini</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <div class="dropdown">
+        <a href="#projects">Projects ▾</a>
+        <div class="dropdown-content">
+          <a href="#project1">Project One</a>
+          <a href="#project2">Project Two</a>
+        </div>
+      </div>
+      <a href="#certifications">Certifications</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home">
+    <img src="pic.jpg" alt="Profile Picture" class="profile-pic">
+    <h2>Hi, I'm Hitesh Saini</h2>
+    <p>Creative Developer | Web Designer | Tech Enthusiast</p>
+    <div class="social-links">
+        <a href="https://www.instagram.com/_saini_hitesh?igsh=aHpxeXBuc2pxOGlj"><i class="fa-brands fa-instagram"></i></a>
+        <!-- <a href="#"><i class="fa-brands fa-facebook"></i></a> -->
+        <a href="https://www.linkedin.com/in/hitesh-saini-6aa71333a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://github.com/Hiteshsaini83077"><i class="fa-brands fa-github"></i></a>
+    </div>
+    <div class="home-buttons">
+        <a href="#projects" class="btn">View My Work</a>
+        <a href="#contact" class="btn">Hire Me</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2 style="text-align: center; color: #00aaff;">About Me</h2>
+    <p style="text-align: center; color: #aaa;">Aspiring AI/ML engineer with a passion for learning and innovation</p>
+    <div class="about-container">
+      <div class="about-text">
+        <p> I'm Hitesh Saini, a Second-year Artificial Intelligence and Machine Learning student at Sanjivani University. Fascinated by the power of intelligent systems, I'm on a journey to explore how AI can solve real-world problems and shape a smarter, more sustainable future.</p>
+        <p>I believe in starting strong — from building foundational skills to experimenting with early projects. Inspired by pioneers in AI, I'm driven to create impactful tech that not only automates but elevates human life.</p>
+        
+        <div class="about-cards">
+          <div class="info-card"><i class="fa-solid fa-briefcase"></i><p><strong>Projects</strong><br>5+</p></div>
+          <div class="info-card"><i class="fa-solid fa-graduation-cap"></i><p><strong>Learning</strong><br>2 Years</p></div>
+          <div class="info-card"><i class="fa-solid fa-star"></i><p><strong>Skills</strong><br>AI/ML</p></div>
+        </div>
+  
+        <div class="about-buttons" >
+            <a href="resume.pdf" class="btn" download title="Click to download my resume">Download Resume</a>
+        </div>
+      </div>
+  
+      <div class="about-image">
+        <img src="about.jpeg" alt="About Image">
+        <div class="caption">
+          <h4>Inspired by Innovations</h4>
+          <p>Exploring how AI can drive sustainability and improve lives globally.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="card" id="project1">
+      <h3>Project One</h3>
+      <p>Brief description about your first project.</p>
+    </div>
+    <div class="card" id="project2">
+      <h3>Project Two</h3>
+      <p>Brief description about your second project.</p>
+    </div>
+  </section>
+
+  <!-- Certifications Section (Achievements) -->
+<section class="certifications" id="certifications">
+  <div class="cert-header">
+    <h2 class="section-title">My Certifications</h2>
+    <p class="section-subtitle">Professional certifications and achievements</p>
+
+    <!-- Filter Buttons -->
+    <div class="cert-filter">
+      <button onclick="filterCerts('all')">All</button>
+      <button onclick="filterCerts('web')">Web</button>
+      <button onclick="filterCerts('mobile')">Mobile</button>
+      <button onclick="filterCerts('cloud')">Cloud</button>
+      <button onclick="filterCerts('ai')">AI</button>
+      <button onclick="filterCerts('design')">Design</button>
+    </div>
+  </div>
+
+  <!-- Certificate Cards -->
+  <!-- (keep the rest of the card code as-is) -->
+
+  
+    <!-- Certificate Cards -->
+    <div class="cert-container">
+      <div class="cert-card" data-category="web" onclick="openModal('web')">
+        <img src="cert-images/web.jpg" alt="Web Dev Certificate">
+        <div class="cert-info">
+          <h3>Full Stack Web Development</h3>
+          <span class="cert-date">January 2023</span>
+          <button class="view-btn" onclick="event.stopPropagation(); openModal('web')">View Details</button>
+        </div>
+      </div>
+  
+      <div class="cert-card" data-category="mobile" onclick="openModal('mobile')">
+        <img src="cert-images/mobile.jpg" alt="Mobile Dev">
+        <div class="cert-info">
+          <h3>Mobile App Development</h3>
+          <span class="cert-date">February 2023</span>
+          <button class="view-btn" onclick="event.stopPropagation(); openModal('mobile')">View Details</button>
+        </div>
+      </div>
+  
+      <div class="cert-card" data-category="cloud" onclick="openModal('cloud')">
+        <img src="cert-images/cloud.jpg" alt="Cloud Cert">
+        <div class="cert-info">
+          <h3>Cloud Practitioner</h3>
+          <span class="cert-date">March 2023</span>
+          <button class="view-btn" onclick="event.stopPropagation(); openModal('cloud')">View Details</button>
+        </div>
+      </div>
+  
+      <div class="cert-card" data-category="ai" onclick="openModal('ai')">
+        <img src="cert-images/ai.jpg" alt="AI Certificate">
+        <div class="cert-info">
+          <h3>AI & Machine Learning</h3>
+          <span class="cert-date">April 2023</span>
+          <button class="view-btn" onclick="event.stopPropagation(); openModal('ai')">View Details</button>
+        </div>
+      </div>
+  
+      <div class="cert-card" data-category="design" onclick="openModal('design')">
+        <img src="cert-images/design.jpg" alt="Design">
+        <div class="cert-info">
+          <h3>UI/UX Design</h3>
+          <span class="cert-date">May 2023</span>
+          <button class="view-btn" onclick="event.stopPropagation(); openModal('design')">View Details</button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Modal Template -->
+    <div class="modal" id="certModal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modal-img" src="" alt="Certificate Preview">
+        <h3 id="modal-title"></h3>
+        <p id="modal-desc"></p>
+        <a id="downloadBtn" href="#" download class="download-btn">Download Certificate</a>
+      </div>
+    </div>
+  </section>
+  
+
+  <section id="skills">
+    <h2 style="text-align:center; color:#00ffe5;">Skills</h2>
+    <p style="text-align:center; color:#ccc;">Tools and technologies I work with</p>
+
+    <div id="skills">
+      <div class="skills-wrapper">
+        <div class="skill-card" data-skill="90">
+          <h3>HTML <span class="skill-percentage">90%</span></h3>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-card" data-skill="85">
+          <h3>CSS <span class="skill-percentage">85%</span></h3>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-card" data-skill="75">
+          <h3>JavaScript <span class="skill-percentage">75%</span></h3>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-card" data-skill="70">
+          <h3>Python <span class="skill-percentage">70%</span></h3>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-card" data-skill="80">
+          <h3>Git <span class="skill-percentage">80%</span></h3>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-card" data-skill="85">
+          <h3>GitHub <span class="skill-percentage">85%</span></h3>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-card" data-skill="70">
+          <h3>Canva <span class="skill-percentage">70%</span></h3>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-card" data-skill="65">
+          <h3>Figma <span class="skill-percentage">65%</span></h3>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill-card" data-skill="60">
+          <h3>Photoshop <span class="skill-percentage">60%</span></h3>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <script>
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href.startsWith('#')) {
+          e.preventDefault();
+          const section = document.querySelector(href);
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  function openModal(id) {
+    document.getElementById(id).style.display = "block";
+  }
+
+  function closeModal(id) {
+    document.getElementById(id).style.display = "none";
+  }
+
+  // Close modals when clicking outside the content
+  window.onclick = function(event) {
+    document.querySelectorAll('.modal').forEach(modal => {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  };
+  const certs = {
+    web: {
+      title: "Full Stack Web Development",
+      desc: "Issued by Udemy. Covers HTML, CSS, JS, React, Node, MongoDB.",
+      img: "cert-images/web.jpg",
+      file: "certificates/web-certificate.pdf"
+    },
+    mobile: {
+      title: "Mobile App Development",
+      desc: "Issued by Coursera. Covers React Native, Flutter, and Firebase.",
+      img: "cert-images/mobile.jpg",
+      file: "certificates/mobile-certificate.pdf"
+    },
+    cloud: {
+      title: "Cloud Practitioner",
+      desc: "Issued by AWS. Basics of cloud computing and AWS services.",
+      img: "cert-images/cloud.jpg",
+      file: "certificates/cloud-certificate.pdf"
+    },
+    ai: {
+      title: "AI & Machine Learning",
+      desc: "Issued by IBM. Covers supervised, unsupervised learning, and NLP.",
+      img: "cert-images/ai.jpg",
+      file: "certificates/ai-certificate.pdf"
+    },
+    design: {
+      title: "UI/UX Design",
+      desc: "Issued by Google. Human-centered design, prototyping and testing.",
+      img: "cert-images/design.jpg",
+      file: "certificates/design-certificate.pdf"
+    }
+  };
+
+  function openModal(key) {
+    document.getElementById('modal-title').innerText = certs[key].title;
+    document.getElementById('modal-desc').innerText = certs[key].desc;
+    document.getElementById('modal-img').src = certs[key].img;
+    document.getElementById('downloadBtn').href = certs[key].file;
+    document.getElementById('certModal').style.display = 'flex';
+  }
+
+  function closeModal() {
+    document.getElementById('certModal').style.display = 'none';
+  }
+
+  function filterCerts(category) {
+    document.querySelectorAll('.cert-card').forEach(card => {
+      card.style.display = (category === 'all' || card.dataset.category === category) ? 'block' : 'none';
+    });
+  }
+  document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll(".skill-card");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const fill = entry.target.querySelector(".skill-fill");
+          const percent = entry.target.dataset.skill;
+          fill.style.width = percent + "%";
+        }
+      });
+    }, { threshold: 0.6 });
+
+    cards.forEach(card => observer.observe(card));
+  });
+  document.addEventListener('DOMContentLoaded', function() {
+          const skillCards = document.querySelectorAll('.skill-card');
+          skillCards.forEach(card => {
+            const skillLevel = card.dataset.skill;
+            const fillElement = card.querySelector('.skill-fill');
+            if (fillElement) {
+              fillElement.style.width = skillLevel + '%';
+            }
+          });
+        });
+
+  </script>
+  <footer style="text-align:center; padding:20px; color:#aaa; background:#1a1a1a;">
+    &copy; 2025 Hitesh Saini. All rights reserved.
+  </footer>
+  
+</body>
+</html>

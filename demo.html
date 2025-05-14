@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      color: #00ffe7;
+      margin-top: 30px;
+    }
+
+    .project {
+      background-color: #1c1c1c;
+      border: 1px solid #00ffe7;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%;
+      box-shadow: 0 0 10px #00ffe7;
+    }
+
+    .project h2 {
+      margin-bottom: 10px;
+    }
+
+    .details {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .btn {
+      background-color: #00ffe7;
+      color: #000;
+      border: none;
+      padding: 8px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #00cccc;
+    }
+
+    .stack-tags {
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      background-color: #1f2937;
+      color: #3b82f6;
+      border-radius: 9999px;
+      padding: 6px 12px;
+      margin: 4px 6px 0 0;
+      font-size: 0.85em;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Projects</h1>
+
+  <div class="project">
+    <h2>Project One: Bitcoin Price Prediction</h2>
+    <p>Built a machine learning model to forecast Bitcoin prices using LSTM, regression and time-series analysis.</p>
+    <button class="btn" onclick="toggleDetails('p1')">View Details</button>
+    <div class="details" id="p1">
+      <p>This project involved collecting historical Bitcoin data, cleaning and preprocessing it, then applying machine learning models like Linear Regression, LSTM, and Random Forest to predict short-term prices.</p>
+      <p><strong>Challenges:</strong> Handling volatile data, data normalization, and avoiding model overfitting.</p>
+      <div class="stack-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Pandas</span>
+        <span class="tag">NumPy</span>
+        <span class="tag">Matplotlib</span>
+        <span class="tag">Scikit-learn</span>
+        <span class="tag">TensorFlow</span>
+        <span class="tag">Keras</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Template for more projects -->
+  <div class="project">
+    <h2>Project Two</h2>
+    <p>Brief description about your second project.</p>
+    <button class="btn" onclick="toggleDetails('p2')">View Details</button>
+    <div class="details" id="p2">
+      <p>Include detailed description here.</p>
+      <p><strong>Challenges:</strong> Mention what problems you faced and how you solvhjggfgjkhgfggfcdxcvghgfcdxzxchgfcdxchbgvc</p>
+      <div class="stack-tags">
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">JavaScript</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleDetails(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+
+</body>
+</html>
