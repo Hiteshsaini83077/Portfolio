@@ -10,11 +10,11 @@ document.querySelectorAll('nav a').forEach(anchor => {
   });
 
   const certs = {
-    web: {
-      title: "Full Stack Web Development",
-      desc: "Issued by Udemy. Covers HTML, CSS, JS, React, Node, MongoDB.",
-      img: "cert-images/web.jpg",
-      file: "certificates/web-certificate.pdf"
+    Hackathons: {
+      title: "Industrial Hackathon",
+      desc: "Issued by Sanjivani University for the participation in the hackathon held inside the campus. \nI feel very confident after attending this first hackathon of my life. ",
+      img: "h1.jpg",
+      file: "h1.jpg"
     },
     ibm: [
         {
@@ -62,17 +62,17 @@ document.querySelectorAll('nav a').forEach(anchor => {
             file: "c2.pdf"
         }
     ],
-    ai: {
+    web: {
       title: "AI & Machine Learning",
       desc: "Issued by IBM. Covers supervised, unsupervised learning, and NLP.",
       img: "cert-images/ai.jpg",
       file: "certificates/ai-certificate.pdf"
     },
     design: {
-      title: "UI/UX Design",
-      desc: "Issued by Google. Human-centered design, prototyping and testing.",
-      img: "cert-images/design.jpg",
-      file: "certificates/design-certificate.pdf"
+      title: "FIGMA Desiging Fundamentals",
+      desc: "Issued by BCBUZZ TECHNOLOGIES.\nThis certificate is provided to me for attending a webnier on 4th January ,2025",
+      img: "design1.jpg",
+      file: "design1.jpg"
     }
   };
 
